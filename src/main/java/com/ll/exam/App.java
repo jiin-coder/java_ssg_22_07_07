@@ -24,6 +24,10 @@ public class App {
                     String author = sc.nextLine().trim();
 
                     int id = ++wiseSayingLastId; // 명언 글 번호 증가
+
+                    WiseSaying wiseSaying = new WiseSaying(id, content, author);
+                    System.out.println(wiseSaying);
+
                     System.out.printf("%d번 명언이 등록되었습니다.\n", id);
 
                     break;
