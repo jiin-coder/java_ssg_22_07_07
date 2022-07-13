@@ -14,6 +14,8 @@ public class App {
         List<WiseSaying> wiseSayings = new ArrayList<>();
         int wiseSayingLastId = 0;
 
+        // 코드 안에 한층 또 한층 의 순환이 있지만 가장 바깥쪽 순환을 직접 끝내려면 outer가 필요
+        // outer는 현재 대표하는 어떤 순환을 표현
         outer:
         while(true) {
             System.out.printf("명령) ");
@@ -37,7 +39,7 @@ public class App {
                     System.out.printf("%d번 명언이 등록되었습니다.\n", id);
                     break;
 
-
+                // 삭제?id=1
                 case "삭제":
                     // URL에 입력된 id 얻기
                     int paramId = rq.getIntParam("id", 0);
@@ -73,6 +75,7 @@ public class App {
                     System.out.println("번호 / 작가 / 명언");
                     System.out.println("-------------------");
 
+                    // i=1일때, 1, 0 // 역순으로 셌으니까
                     for (int i = wiseSayings.size() - 1; i >= 0; i--) {
                         WiseSaying wiseSaying_ = wiseSayings.get(i);
                         System.out.printf("%d / %s / %s\n", wiseSaying_.id, wiseSaying_.content, wiseSaying_.author);
@@ -82,7 +85,8 @@ public class App {
                 case "종료":
                     break outer;
             }
-        }
+            // break : switch문이 꺼지고 while문 루프
+        } // break outer : while문에서 빠져나가버림
 
         sc.close();
     }
