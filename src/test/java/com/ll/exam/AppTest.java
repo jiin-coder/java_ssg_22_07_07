@@ -18,7 +18,7 @@ public class AppTest {
 
         assertEquals("삭제", path);
     }
-    
+
     @Test
     public void Rq__getIntParam() {
         Rq rq = new Rq("삭제?id=1");
